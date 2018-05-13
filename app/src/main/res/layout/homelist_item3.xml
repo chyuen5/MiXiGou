@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:background="@drawable/bg_contact_item_normal"
+	android:padding="1dip" >
+
+	<!-- 档案管理  行窄一些 -->
+	<RelativeLayout
+		android:id="@+id/rl_finish2"
+		android:layout_width="match_parent"
+		android:layout_height="60dp"
+		android:layout_marginTop="1dp"
+		android:layout_marginBottom="1dp">
+		<ImageView
+			android:id="@+id/iv_icon1"
+			android:layout_width="30dp"
+			android:layout_height="30dp"
+			android:layout_marginLeft="15dp"
+			android:layout_marginBottom="1dp"
+			android:layout_centerVertical="true"
+			android:scaleType="centerInside"
+			android:contentDescription="@null"
+			android:src="@mipmap/home_anquan01"
+			android:visibility="visible"/>
+		<RelativeLayout
+			android:id="@+id/rl_finish"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_toRightOf="@id/iv_icon1"
+			android:layout_centerVertical="true"
+			android:paddingRight="30dp">
+			<TextView
+				android:id="@+id/tv_title"
+				style="@style/list_text_info"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginLeft="18dp"
+				android:text="标题"
+				android:textSize="18dp"
+				android:textColor="#717071"
+				android:layout_marginBottom="2dp" />
+		</RelativeLayout>
+
+		<ImageView
+			android:id="@+id/iv_icon2"
+			android:layout_width="20dp"
+			android:layout_height="20dp"
+			android:layout_alignParentRight="true"
+			android:src="@mipmap/pedding_icon1"
+			android:layout_centerVertical="true"
+			android:contentDescription="@null" />
+
+		<RelativeLayout
+			android:id="@+id/rl_finish3"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_toLeftOf="@id/iv_icon2"
+			android:layout_centerVertical="true"
+			android:paddingRight="1dp">
+			<TextView
+				android:id="@+id/tv_title2"
+				style="@style/list_text_info"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginBottom="2dp"
+				android:layout_marginRight="20dp"
+				android:text="0"
+				android:textSize="18dp"
+				android:textColor="#ED1C24" />
+		</RelativeLayout>
+
+	</RelativeLayout>
+</RelativeLayout>

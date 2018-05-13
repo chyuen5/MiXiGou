@@ -1,0 +1,177 @@
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:fitsSystemWindows="true"
+    tools:openDrawer="start"
+    android:orientation="vertical">
+
+   <RelativeLayout
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="#303F9F" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:text="用 户 登 录"
+            android:textColor="#ffffff"
+            android:textSize="16sp" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/LinearLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="50dp"
+        android:background="#FFFFFF">
+
+        <RelativeLayout
+            android:layout_width="300dp"
+            android:layout_height="100dp" 
+            android:layout_marginTop="40dp"
+            android:layout_gravity="center"
+            android:gravity="center" >
+
+		   <ImageView
+                android:id="@+id/iv_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/login_icon08" />
+        </RelativeLayout>   
+        
+        <RelativeLayout
+            android:layout_width="200dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center"
+            android:gravity="center" >
+        <TextView
+                android:id="@+id/tv_version"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+        		android:layout_centerHorizontal="true"
+                android:textColor="#636363"
+                android:textSize="13sp" 
+                android:text="版本：2.0"/>
+        </RelativeLayout>
+        
+       <RelativeLayout
+            android:layout_width="280dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp" >
+            
+            <EditText
+                android:id="@+id/et_usertel"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:layout_centerVertical="true"
+                android:background="@anim/login_textcorner"
+                android:hint="输入你的用户名"
+                android:paddingLeft="40dp"
+                android:singleLine="true"
+                android:textColorHint="#BDBDBD"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+            
+           <TextView
+                android:layout_width="14dp"
+                android:layout_height="18dp"
+                android:layout_alignLeft="@id/et_usertel"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:text=""
+                android:textColor="#353535"
+                android:background="@mipmap/login_icon02"
+                android:textSize="16sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+             android:layout_width="280dp"
+             android:layout_height="match_parent" 
+             android:layout_gravity="center"
+             android:layout_marginTop="15dp">
+            <EditText
+                android:id="@+id/et_password"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:layout_centerVertical="true"
+                android:background="@drawable/login_textcorner"
+                android:hint="输入你的密码"
+                android:paddingLeft="40dp"
+                android:password="true"
+                android:singleLine="true"
+                android:textColorHint="#BDBDBD"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+            <TextView
+                android:id="@+id/tv_password"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_alignLeft="@id/et_password"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:text=""
+                 android:background="@mipmap/login_icon03"
+                android:textColor="#353535"
+                android:textSize="16sp" />
+        </RelativeLayout>
+		
+       <RelativeLayout
+            android:layout_width="200dp"
+            android:layout_height="match_parent" 
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            >
+		    
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/btn_login"
+            android:layout_width="280dp"
+            android:layout_height="38dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/button_corner"
+            android:enabled="true"
+            android:gravity="center"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp"
+            android:text="登  录"
+            android:textColor="@android:color/white"
+            android:textSize="16sp" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="#FFFFFF"
+        android:padding="30dp">
+
+        <TextView
+            android:id="@+id/tv_youke"
+            android:layout_width="match_parent"
+            android:layout_height="38dp"
+            android:gravity="center"
+            android:text="游 客 登 录"
+            android:textColor="#5E5E5E"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+
+
+</android.support.design.widget.CoordinatorLayout>

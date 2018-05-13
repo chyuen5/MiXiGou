@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/re_outofoffice_index"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" 
+    android:background="#FFFFFF"
+	android:fitsSystemWindows="true"
+	tools:openDrawer="start">
+   
+   <LinearLayout
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content"
+     android:orientation="vertical">
+
+	   <LinearLayout
+		   android:layout_width="match_parent"
+		   android:layout_height="46dp">
+
+		   <RelativeLayout
+			   android:id="@+id/title"
+			   android:layout_width="match_parent"
+			   android:layout_height="48dp"
+			   android:layout_alignParentTop="true"
+			   android:background="#0F77BD">
+
+			   <ImageView
+				   android:id="@+id/iv_back"
+				   android:layout_width="50dp"
+				   android:layout_height="match_parent"
+				   android:layout_centerVertical="true"
+				   android:layout_alignParentLeft="true"
+				   android:clickable="true"
+				   android:src="@mipmap/ac3" />
+
+			   <TextView
+				   android:id="@+id/tv_title2"
+				   android:layout_width="wrap_content"
+				   android:layout_height="wrap_content"
+				   android:layout_alignParentLeft="true"
+				   android:layout_alignParentRight="true"
+				   android:layout_centerVertical="true"
+				   android:gravity="center"
+				   android:text="首页"
+				   android:textColor="#ffffff"
+				   android:textSize="18sp" />
+
+			   <ImageView
+				   android:id="@+id/iv_add"
+				   android:layout_width="50dp"
+				   android:layout_height="match_parent"
+				   android:layout_alignParentRight="true"
+				   android:clickable="true"
+				   android:layout_centerVertical="true"
+				   android:src="@mipmap/ac4" />
+
+			   <TextView
+				   android:id="@+id/tv_title3"
+				   android:layout_width="50dp"
+				   android:layout_height="50dp"
+				   android:layout_alignParentRight="true"
+				   android:visibility="gone"
+				   android:gravity="center"
+				   android:text="注销"
+				   android:textColor="#ffffff"
+				   android:textSize="16sp" />
+
+		   </RelativeLayout>
+
+	   </LinearLayout>
+      
+       	<RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="140dp" 
+            android:background="@mipmap/shouye" />
+
+	   <ListView
+		   android:id="@+id/list_dangan"
+		   android:layout_width="fill_parent"
+		   android:layout_height="fill_parent"
+		   android:background="#FFFFFF"
+		   android:divider="#DADADA"
+		   android:dividerHeight="2px"
+		   android:scrollbars="none"
+		   android:scrollingCache="true" />
+
+   </LinearLayout>
+</android.support.design.widget.CoordinatorLayout>
