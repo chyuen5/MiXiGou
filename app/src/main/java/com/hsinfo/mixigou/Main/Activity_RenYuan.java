@@ -94,7 +94,6 @@ public class Activity_RenYuan extends Activity implements OnClickListener
         m_duban = sp.getString("USERDATA.DUBAN.NUM", "0");
         m_daiban = sp.getString("USERDATA.DAIBAN.NUM", "0");
 
-        m_loginname = "admin";
         m_rolecode = Integer.parseInt(strrolecode);
 
         iv_add = (ImageView) findViewById(R.id.iv_add);
@@ -207,7 +206,7 @@ public class Activity_RenYuan extends Activity implements OnClickListener
 
                 if (position == 0)
                 {
-                    url=appUrl+"/MxgApp/webSafety/goAddjdgl/"+m_loginname;
+                    url=appUrl+"/MxgApp/rygl/statistics/0/2018-00-00";
                     Intent intent = new Intent();
                     intent.setClass(Activity_RenYuan.this, WebViewCanteen.class);
                     intent.putExtra("webUrl",url);
@@ -216,7 +215,7 @@ public class Activity_RenYuan extends Activity implements OnClickListener
                 }
                 else if( position==1 )
                 {
-                    url=appUrl+"/MxgApp/webSafety/goAddjdgl/"+m_loginname;
+                    url=appUrl+"/MxgApp/rygl/statistics/gz";
                     Intent intent = new Intent();
                     intent.setClass(Activity_RenYuan.this, WebViewCanteen.class);
                     intent.putExtra("webUrl",url);

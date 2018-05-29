@@ -237,20 +237,38 @@ public class ActivityMain extends Activity implements OnClickListener
             }
             else if( arg3==1 )  //人员管理
             {
-                url = appUrl+"/LHKAppServer/webQualityClear/waitDealQuality/"+m_loginname+"/1";
                 Intent intent = new Intent();
-                intent.setClass(ActivityMain.this, WebViewCanteen.class);
-                intent.putExtra("webUrl",url);
-                intent.putExtra("titleName","人员管理");
+                intent.setClass(ActivityMain.this, Activity_RenYuan.class);
                 startActivity(intent);
             }
-            else if( arg3==2 )  //项目管理
+            else if( arg3==2 )  //预控管理
             {
-                url = appUrl+"/LHKAppServer/webQualityClear/waitDealQuality/"+m_loginname+"/1";
                 Intent intent = new Intent();
-                intent.setClass(ActivityMain.this, WebViewCanteen.class);
-                intent.putExtra("webUrl",url);
-                intent.putExtra("titleName","我的待办");
+                intent.setClass(ActivityMain.this, Activity_YuKong.class);
+                startActivity(intent);
+            }
+            else if( arg3==3 )  //质量管理
+            {
+                Intent intent = new Intent();
+                intent.setClass(ActivityMain.this, Activity_ZhiLiang.class);
+                startActivity(intent);
+            }
+            else if( arg3==4 )  //安全管理
+            {
+                Intent intent = new Intent();
+                intent.setClass(ActivityMain.this, Activity_AnQuan.class);
+                startActivity(intent);
+            }
+            else if( arg3==5 )  //车辆管理
+            {
+                Intent intent = new Intent();
+                intent.setClass(ActivityMain.this, Activity_JinDu.class);
+                startActivity(intent);
+            }
+            else if( arg3==6 )  //物资管理
+            {
+                Intent intent = new Intent();
+                intent.setClass(ActivityMain.this, Activity_JinDu.class);
                 startActivity(intent);
             }
         }

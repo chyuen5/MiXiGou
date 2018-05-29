@@ -79,6 +79,30 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppThemeM.slide"/>
         <activity
+            android:name=".Main.Activity_RenYuan"
+            android:launchMode="singleTask"
+            android:windowSoftInputMode="adjustPan"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeM.slide"/>
+        <activity
+            android:name=".Main.Activity_YuKong"
+            android:launchMode="singleTask"
+            android:windowSoftInputMode="adjustPan"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeM.slide"/>
+        <activity
+            android:name=".Main.Activity_ZhiLiang"
+            android:launchMode="singleTask"
+            android:windowSoftInputMode="adjustPan"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeM.slide"/>
+        <activity
+            android:name=".Main.Activity_AnQuan"
+            android:launchMode="singleTask"
+            android:windowSoftInputMode="adjustPan"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeM.slide"/>
+        <activity
             android:name=".WebView.WebViewCanteen"
             android:launchMode="singleTask"
             android:windowSoftInputMode="adjustPan"

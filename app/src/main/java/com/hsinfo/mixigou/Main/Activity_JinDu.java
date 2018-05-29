@@ -94,7 +94,6 @@ public class Activity_JinDu extends Activity implements OnClickListener
         m_duban = sp.getString("USERDATA.DUBAN.NUM", "0");
         m_daiban = sp.getString("USERDATA.DAIBAN.NUM", "0");
 
-        m_loginname = "admin";
         m_rolecode = Integer.parseInt(strrolecode);
 
         iv_add = (ImageView) findViewById(R.id.iv_add);
@@ -176,7 +175,6 @@ public class Activity_JinDu extends Activity implements OnClickListener
         initList_100();
     }
 
-    //领导
     public ListView initList_100()
     {
         FinishPeddingItem listItem1 = new FinishPeddingItem();

@@ -383,6 +383,7 @@ public class ActivityLogin extends AppCompatActivity
 
                 android.util.Log.i("cjwsjy", "--------roles="+roles+"-------onBackPressed");
 
+                //loginName = "admin";
                 //保存
                 editor.putBoolean("SAVE_INFO", true);
                 editor.putString("USERDATA.LOGIN.NAME", loginName);
@@ -396,7 +397,6 @@ public class ActivityLogin extends AppCompatActivity
                 msg = handler.obtainMessage();
                 msg.what = 1;
                 handler.sendMessage(msg);
-
             }
             catch (JSONException e)
             {
