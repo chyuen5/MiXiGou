@@ -179,13 +179,13 @@ public class Activity_RenYuan extends Activity implements OnClickListener
     public ListView initList_100()
     {
         FinishPeddingItem listItem1 = new FinishPeddingItem();
-        listItem1.setIv_icon1(R.mipmap.home_jindu01);
+        listItem1.setIv_icon1(R.mipmap.home_renyuan01);
         listItem1.setTv_title("人员统计");
         //listItem1.setTv_date(m_duban);
         listItems.add(listItem1);
 
         FinishPeddingItem listItem2 = new FinishPeddingItem();
-        listItem2.setIv_icon1(R.mipmap.home_jindu02);
+        listItem2.setIv_icon1(R.mipmap.home_renyuan02);
         listItem2.setTv_title("工资信息");
         listItems.add(listItem2);
 

@@ -73,8 +73,9 @@
       
        	<RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="140dp" 
-            android:background="@mipmap/shouye" />
+            android:layout_height="140dp"
+			android:visibility="gone"
+			android:background="@mipmap/shouye" />
 
 	   <ListView
 		   android:id="@+id/list_dangan"

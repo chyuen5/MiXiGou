@@ -180,20 +180,35 @@ public class Activity_AnQuan extends Activity implements OnClickListener
     public ListView initList_100()
     {
         FinishPeddingItem listItem1 = new FinishPeddingItem();
-        listItem1.setIv_icon1(R.mipmap.home_jindu01);
-        listItem1.setTv_title("危险源识别与控制");
+        listItem1.setIv_icon1(R.mipmap.home_anquan01);
+        listItem1.setTv_title("危险源发布");
         //listItem1.setTv_date(m_duban);
         listItems.add(listItem1);
 
         FinishPeddingItem listItem2 = new FinishPeddingItem();
-        listItem2.setIv_icon1(R.mipmap.home_jindu02);
-        listItem2.setTv_title("安全巡检");
+        listItem2.setIv_icon1(R.mipmap.home_anquan02);
+        listItem2.setTv_title("危险源管理已办");
         listItems.add(listItem2);
 
         FinishPeddingItem listItem3 = new FinishPeddingItem();
-        listItem3.setIv_icon1(R.mipmap.home_jindu02);
-        listItem3.setTv_title("安全亮点");
+        listItem3.setIv_icon1(R.mipmap.home_anquan03);
+        listItem3.setTv_title("巡检管理发布");
         listItems.add(listItem3);
+
+        FinishPeddingItem listItem4 = new FinishPeddingItem();
+        listItem4.setIv_icon1(R.mipmap.home_anquan04);
+        listItem4.setTv_title("巡检管理已办");
+        listItems.add(listItem4);
+
+        FinishPeddingItem listItem5 = new FinishPeddingItem();
+        listItem5.setIv_icon1(R.mipmap.home_anquan05);
+        listItem5.setTv_title("亮点管理发布");
+        listItems.add(listItem5);
+
+        FinishPeddingItem listItem6 = new FinishPeddingItem();
+        listItem6.setIv_icon1(R.mipmap.home_anquan06);
+        listItem6.setTv_title("亮点管理已办");
+        listItems.add(listItem6);
 
         // 生成适配器的Item和动态数组对应的元素
         listItemAdapter = new AdaperItem3( Activity_AnQuan.this, listItems );
@@ -212,29 +227,56 @@ public class Activity_AnQuan extends Activity implements OnClickListener
 
                 if (position == 0)
                 {
-                    url=appUrl+"/MxgApp/webSafety/waitweixianyuan/"+m_loginname+"/1";
+                    url=appUrl+"/MxgApp/webSafety/goAddweixianyuan/"+m_loginname;
                     Intent intent = new Intent();
                     intent.setClass(Activity_AnQuan.this, WebViewCanteen.class);
                     intent.putExtra("webUrl",url);
-                    intent.putExtra("titleName","危险源识别与控制");
+                    intent.putExtra("titleName","危险源发布");
                     startActivity(intent);
                 }
                 else if( position==1 )
                 {
-                    url=appUrl+"/MxgApp/webSafety/waitDealQuality/"+m_loginname+"/1";
+                    url=appUrl+"/MxgApp/webSafety/waitweixianyuan_s/"+m_loginname+"/1";
                     Intent intent = new Intent();
                     intent.setClass(Activity_AnQuan.this, WebViewCanteen.class);
                     intent.putExtra("webUrl",url);
-                    intent.putExtra("titleName","安全巡检");
+                    intent.putExtra("titleName","危险源管理已办");
                     startActivity(intent);
                 }
                 else if( position==2 )
                 {
-                    url=appUrl+"/MxgApp/webSafety/waitliangdian/"+m_loginname+"/1";
+                    url=appUrl+"/MxgApp/webSafety/goAddaqxjgl/"+m_loginname;
                     Intent intent = new Intent();
                     intent.setClass(Activity_AnQuan.this, WebViewCanteen.class);
                     intent.putExtra("webUrl",url);
-                    intent.putExtra("titleName","安全亮点");
+                    intent.putExtra("titleName","巡检管理发布");
+                    startActivity(intent);
+                }
+                else if( position==3 )
+                {
+                    url=appUrl+"/MxgApp/webSafety/waitDealQuality_s/"+m_loginname+"/1";
+                    Intent intent = new Intent();
+                    intent.setClass(Activity_AnQuan.this, WebViewCanteen.class);
+                    intent.putExtra("webUrl",url);
+                    intent.putExtra("titleName","巡检管理已办");
+                    startActivity(intent);
+                }
+                else if( position==4 )
+                {
+                    url=appUrl+"/MxgApp/webSafety/goAddaqldgl/"+m_loginname;
+                    Intent intent = new Intent();
+                    intent.setClass(Activity_AnQuan.this, WebViewCanteen.class);
+                    intent.putExtra("webUrl",url);
+                    intent.putExtra("titleName","亮点管理发布");
+                    startActivity(intent);
+                }
+                else if( position==5 )
+                {
+                    url=appUrl+"/MxgApp/webSafety/waitliangdian_s/"+m_loginname+"/1";
+                    Intent intent = new Intent();
+                    intent.setClass(Activity_AnQuan.this, WebViewCanteen.class);
+                    intent.putExtra("webUrl",url);
+                    intent.putExtra("titleName","亮点管理已办");
                     startActivity(intent);
                 }
             }
