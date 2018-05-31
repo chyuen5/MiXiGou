@@ -14,21 +14,16 @@ import android.os.Message;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
-import android.util.DisplayMetrics;
-import android.view.Display;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
 import android.widget.AdapterView;
-import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.hsinfo.mixigou.ActivityLogin;
-import com.hsinfo.mixigou.GridView.Grid_Item;
-import com.hsinfo.mixigou.GridView.NewGridAdaper;
 import com.hsinfo.mixigou.R;
 import com.hsinfo.mixigou.Utils.HttpClientUtil;
 import com.hsinfo.mixigou.Utils.UrlUtil;
@@ -47,7 +42,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-public class Activity_ZhiLiang extends Activity implements OnClickListener
+public class Activity_WuZhi extends Activity implements OnClickListener
 {
     private SharedPreferences sp;
 
@@ -66,7 +61,7 @@ public class Activity_ZhiLiang extends Activity implements OnClickListener
     private  TextView tv_zaixian;
     private  ImageView iv_add;
 
-    private GridView gridView;
+    ListView listview;
 
     private int m_rolecode;
     private String m_loginname;
@@ -83,7 +78,7 @@ public class Activity_ZhiLiang extends Activity implements OnClickListener
     {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-        setContentView(R.layout.activity_zhiliang);
+        setContentView(R.layout.activity_jindu);
 
         String strurl = "";
         String strrolecode = "";
@@ -102,7 +97,7 @@ public class Activity_ZhiLiang extends Activity implements OnClickListener
         m_rolecode = Integer.parseInt(strrolecode);
 
         iv_add = (ImageView) findViewById(R.id.iv_add);
-        gridView = (GridView) findViewById(R.id.main_grid3);
+        listview = (ListView) findViewById(R.id.list_dangan);
         tv_zhuxiao = (TextView) findViewById(R.id.tv_title3);
 
         if(m_rolecode==300)
@@ -116,7 +111,7 @@ public class Activity_ZhiLiang extends Activity implements OnClickListener
             @Override
             public void onClick(View view)
             {
-                final AlertDialog.Builder normalDialog = new AlertDialog.Builder(Activity_ZhiLiang.this);
+                final AlertDialog.Builder normalDialog = new AlertDialog.Builder(Activity_WuZhi.this);
                 normalDialog.setTitle("注销");
                 normalDialog.setMessage("确定要注销吗？");
                 normalDialog.setPositiveButton("确定",
@@ -126,7 +121,7 @@ public class Activity_ZhiLiang extends Activity implements OnClickListener
                             {
                                 // 注销
                                 Intent intent = new Intent();
-                                intent.setClass( Activity_ZhiLiang.this, ActivityLogin.class);
+                                intent.setClass( Activity_WuZhi.this, ActivityLogin.class);
                                 startActivity(intent);
 
                                 finish();
@@ -144,6 +139,8 @@ public class Activity_ZhiLiang extends Activity implements OnClickListener
             }
         });
 
+        listview.setHeaderDividersEnabled(true);
+        listview.setFooterDividersEnabled(true);
 
         // 侧滑
         setUpMenu();
@@ -162,7 +159,7 @@ public class Activity_ZhiLiang extends Activity implements OnClickListener
         });
 
         TextView tv_title = (TextView) this.findViewById(R.id.tv_title2);
-        tv_title.setText("质量管理");
+        tv_title.setText("进度管理");
 
         // 后退
         ImageView iv_back = (ImageView) this.findViewById(R.id.iv_back);
@@ -178,105 +175,52 @@ public class Activity_ZhiLiang extends Activity implements OnClickListener
         initList_100();
     }
 
-    public int initList_100()
+    public ListView initList_100()
     {
-        ArrayList<Grid_Item> lists = new ArrayList<Grid_Item>();
-        lists.add(new Grid_Item(R.mipmap.home_zhiliang01, "我的督办"));
-        lists.add(new Grid_Item(R.mipmap.home_zhiliang02, "我的待办"));
-        lists.add(new Grid_Item(R.mipmap.home_zhiliang02, "我的已办"));
-        lists.add(new Grid_Item(R.mipmap.home_zhiliang03, "我的关注"));
-        lists.add(new Grid_Item(R.mipmap.home_zhiliang05, "消缺记录"));
-        lists.add(new Grid_Item(R.mipmap.home_zhiliang04, "消缺统计"));
-        lists.add(new Grid_Item(R.mipmap.home_zhiliang05, "添加消缺"));
+        FinishPeddingItem listItem1 = new FinishPeddingItem();
+        listItem1.setIv_icon1(R.mipmap.home_wuzhi01);
+        listItem1.setTv_title("物质台账");
+        //listItem1.setTv_date(m_duban);
+        listItems.add(listItem1);
 
-        DisplayMetrics metrics = new DisplayMetrics();
-        Display display = this.getWindowManager().getDefaultDisplay();
-        display.getMetrics(metrics);
+        // 生成适配器的Item和动态数组对应的元素
+        listItemAdapter = new AdaperItem3( Activity_WuZhi.this, listItems );
+        listItemAdapter.setListView(listview);
+        // 添加并且显示
+        listview.setAdapter(listItemAdapter);
 
-        int pixelsX = metrics.widthPixels;
-
-        NewGridAdaper adaper = new NewGridAdaper( this, lists, pixelsX );
-        gridView.setAdapter(adaper);
-
-        //添加消息处理
-        gridView.setOnItemClickListener(gridViewListener1);
-
-        return 1;
-    }
-
-    //gridview点击事件
-    private AdapterView.OnItemClickListener gridViewListener1 = new AdapterView.OnItemClickListener()
-    {
-        @Override
-        public void onItemClick(AdapterView<?> arg0,View arg1,int arg2,long arg3)
+        listview.setOnItemClickListener(new AdapterView.OnItemClickListener()
         {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view,int position, long id)
+            {
+                String url;
+                FinishPeddingItem item = (FinishPeddingItem) listview.getItemAtPosition(position);
+                String formId = item.getTv_formid();
 
-            String url;
-            if( arg3==0 )  //我的督办
-            {
-                url=appUrl+"/MxgApp/webQualityClear/dubanQuality/"+m_loginname+"/1";
-                Intent intent = new Intent();
-                intent.setClass(Activity_ZhiLiang.this, WebViewCanteen.class);
-                intent.putExtra("webUrl",url);
-                intent.putExtra("titleName","我的督办");
-                startActivity(intent);
+                if (position == 0)
+                {
+                    url=appUrl+"/MxgApp/webResourceDetail/getResourceDeailQuery/"+m_loginname;
+                    Intent intent = new Intent();
+                    intent.setClass(Activity_WuZhi.this, WebViewCanteen.class);
+                    intent.putExtra("webUrl",url);
+                    intent.putExtra("titleName","物质台账");
+                    startActivity(intent);
+                }
+                else if( position==1 )
+                {
+                    url=appUrl+"/MxgApp/webSafety/goAddjdgl/"+m_loginname;
+                    Intent intent = new Intent();
+                    intent.setClass(Activity_WuZhi.this, WebViewCanteen.class);
+                    intent.putExtra("webUrl",url);
+                    intent.putExtra("titleName","进度模拟");
+                    startActivity(intent);
+                }
             }
-            else if( arg3==1 )  //我的待办
-            {
-                url=appUrl+"/MxgApp/webQualityClear/waitDealQuality/"+m_loginname+"/1";
-                Intent intent = new Intent();
-                intent.setClass(Activity_ZhiLiang.this, WebViewCanteen.class);
-                intent.putExtra("webUrl",url);
-                intent.putExtra("titleName","我的待办");
-                startActivity(intent);
-            }
-            else if( arg3==2 )  //我的已办
-            {
-                url=appUrl+"/MxgApp/webQualityClear/yibanQuality/"+m_loginname+"/1";
-                Intent intent = new Intent();
-                intent.setClass(Activity_ZhiLiang.this, WebViewCanteen.class);
-                intent.putExtra("webUrl",url);
-                intent.putExtra("titleName","我的已办");
-                startActivity(intent);
-            }
-            else if( arg3==3 )  //我的关注
-            {
-                url=appUrl+"/MxgApp/webQualityClear/getAttentionList/"+m_loginname;
-                Intent intent = new Intent();
-                intent.setClass(Activity_ZhiLiang.this, WebViewCanteen.class);
-                intent.putExtra("webUrl",url);
-                intent.putExtra("titleName","我的关注");
-                startActivity(intent);
-            }
-            else if( arg3==4 )  //消缺记录
-            {
-                url=appUrl+"/MxgApp/webQualityClear/getQualityList/"+m_loginname+"/1";
-                Intent intent = new Intent();
-                intent.setClass(Activity_ZhiLiang.this, WebViewCanteen.class);
-                intent.putExtra("webUrl",url);
-                intent.putExtra("titleName","消缺记录");
-                startActivity(intent);
-            }
-            else if( arg3==5 )  //消缺统计
-            {
-                url=appUrl+"/MxgApp/webQualityClear/getBasicSituation/"+m_loginname;
-                Intent intent = new Intent();
-                intent.setClass(Activity_ZhiLiang.this, WebViewCanteen.class);
-                intent.putExtra("webUrl",url);
-                intent.putExtra("titleName","消缺统计");
-                startActivity(intent);
-            }
-            else if( arg3==6 )  //添加消缺
-            {
-                url=appUrl+"/MxgApp/webQualityClear/goAddTQuality/"+m_loginname;
-                Intent intent = new Intent();
-                intent.setClass(Activity_ZhiLiang.this, WebViewCanteen.class);
-                intent.putExtra("webUrl",url);
-                intent.putExtra("titleName","添加消缺");
-                startActivity(intent);
-            }
-        }
-    };
+        });
+
+        return listview;
+    }
 
     private void UpdateList(int mark)
     {
@@ -540,7 +484,7 @@ public class Activity_ZhiLiang extends Activity implements OnClickListener
 
             String surl=appUrl+"/LHKAppServer/goPassword/"+m_loginname;
             Intent intent = new Intent();
-            intent.setClass(Activity_ZhiLiang.this, WebViewCanteen.class);
+            intent.setClass(Activity_WuZhi.this, WebViewCanteen.class);
             intent.putExtra("webUrl",surl);
             intent.putExtra("titleName","修改密码");
             startActivity(intent);
@@ -557,7 +501,7 @@ public class Activity_ZhiLiang extends Activity implements OnClickListener
         else if (view == itemSettings)
         {
 
-            final AlertDialog.Builder normalDialog = new AlertDialog.Builder(Activity_ZhiLiang.this);
+            final AlertDialog.Builder normalDialog = new AlertDialog.Builder(Activity_WuZhi.this);
             normalDialog.setTitle("注销");
             normalDialog.setMessage("确定要注销吗？");
             normalDialog.setPositiveButton("确定",
@@ -567,7 +511,7 @@ public class Activity_ZhiLiang extends Activity implements OnClickListener
                         {
                             // 注销
                             Intent intent = new Intent();
-                            intent.setClass( Activity_ZhiLiang.this, ActivityLogin.class);
+                            intent.setClass( Activity_WuZhi.this, ActivityLogin.class);
                             startActivity(intent);
 
                             finish();

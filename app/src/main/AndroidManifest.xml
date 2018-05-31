@@ -46,7 +46,7 @@
         android:icon="@mipmap/ic_launcher"
         android:name=".App"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/ic_launcher_round2"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
@@ -58,7 +58,8 @@
 
         <activity
             android:name=".ActivityLogin"
-            android:label="@string/app_name">
+            android:label="@string/app_name"
+            android:theme="@style/AppThemeM.slide">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -104,6 +105,12 @@
             android:theme="@style/AppThemeM.slide"/>
         <activity
             android:name=".Main.Activity_AnQuan_DaiBan"
+            android:launchMode="singleTask"
+            android:windowSoftInputMode="adjustPan"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeM.slide"/>
+        <activity
+            android:name=".Main.Activity_WuZhi"
             android:launchMode="singleTask"
             android:windowSoftInputMode="adjustPan"
             android:screenOrientation="portrait"

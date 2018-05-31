@@ -268,14 +268,14 @@ public class ActivityMain extends Activity implements OnClickListener
             }
             else if( arg3==6 )  //车辆管理
             {
-                Intent intent = new Intent();
-                intent.setClass(ActivityMain.this, Activity_JinDu.class);
-                startActivity(intent);
+                //Intent intent = new Intent();
+                //intent.setClass(ActivityMain.this, Activity_JinDu.class);
+                //startActivity(intent);
             }
             else if( arg3==7 )  //物资管理
             {
                 Intent intent = new Intent();
-                intent.setClass(ActivityMain.this, Activity_JinDu.class);
+                intent.setClass(ActivityMain.this, Activity_WuZhi.class);
                 startActivity(intent);
             }
         }
