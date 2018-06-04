@@ -199,6 +199,7 @@ public class ActivityMain extends Activity implements OnClickListener
     public int initList_100()
     {
         ArrayList<Grid_Item> lists = new ArrayList<Grid_Item>();
+        lists.add(new Grid_Item(R.mipmap.homepage_icon09, "安全管理待办"));
         lists.add(new Grid_Item(R.mipmap.homepage_icon01, "进度管理"));
         lists.add(new Grid_Item(R.mipmap.homepage_icon02, "人员管理"));
         lists.add(new Grid_Item(R.mipmap.homepage_icon03, "预控管理"));
@@ -232,25 +233,49 @@ public class ActivityMain extends Activity implements OnClickListener
             if( arg3==0 )  //进度管理
             {
                 Intent intent = new Intent();
+                intent.setClass(ActivityMain.this, Activity_AnQuan_DaiBan.class);
+                startActivity(intent);
+            }
+            else if( arg3==1 )  //进度管理
+            {
+                Intent intent = new Intent();
                 intent.setClass(ActivityMain.this, Activity_JinDu.class);
                 startActivity(intent);
             }
-            else if( arg3==1 )  //人员管理
+            else if( arg3==2 )  //人员管理
             {
-                url = appUrl+"/LHKAppServer/webQualityClear/waitDealQuality/"+m_loginname+"/1";
                 Intent intent = new Intent();
-                intent.setClass(ActivityMain.this, WebViewCanteen.class);
-                intent.putExtra("webUrl",url);
-                intent.putExtra("titleName","人员管理");
+                intent.setClass(ActivityMain.this, Activity_RenYuan.class);
                 startActivity(intent);
             }
-            else if( arg3==2 )  //项目管理
+            else if( arg3==3 )  //预控管理
             {
-                url = appUrl+"/LHKAppServer/webQualityClear/waitDealQuality/"+m_loginname+"/1";
                 Intent intent = new Intent();
-                intent.setClass(ActivityMain.this, WebViewCanteen.class);
-                intent.putExtra("webUrl",url);
-                intent.putExtra("titleName","我的待办");
+                intent.setClass(ActivityMain.this, Activity_YuKong.class);
+                startActivity(intent);
+            }
+            else if( arg3==4 )  //质量管理
+            {
+                Intent intent = new Intent();
+                intent.setClass(ActivityMain.this, Activity_ZhiLiang.class);
+                startActivity(intent);
+            }
+            else if( arg3==5 )  //安全管理
+            {
+                Intent intent = new Intent();
+                intent.setClass(ActivityMain.this, Activity_AnQuan.class);
+                startActivity(intent);
+            }
+            else if( arg3==6 )  //车辆管理
+            {
+                //Intent intent = new Intent();
+                //intent.setClass(ActivityMain.this, Activity_JinDu.class);
+                //startActivity(intent);
+            }
+            else if( arg3==7 )  //物资管理
+            {
+                Intent intent = new Intent();
+                intent.setClass(ActivityMain.this, Activity_WuZhi.class);
                 startActivity(intent);
             }
         }

@@ -180,14 +180,14 @@ public class Activity_YuKong extends Activity implements OnClickListener
     public ListView initList_100()
     {
         FinishPeddingItem listItem1 = new FinishPeddingItem();
-        listItem1.setIv_icon1(R.mipmap.home_jindu01);
-        listItem1.setTv_title("人员统计");
+        listItem1.setIv_icon1(R.mipmap.home_yukong01);
+        listItem1.setTv_title("培训教育");
         //listItem1.setTv_date(m_duban);
         listItems.add(listItem1);
 
         FinishPeddingItem listItem2 = new FinishPeddingItem();
-        listItem2.setIv_icon1(R.mipmap.home_jindu02);
-        listItem2.setTv_title("工资信息");
+        listItem2.setIv_icon1(R.mipmap.home_yukong02);
+        listItem2.setTv_title("现场交底");
         listItems.add(listItem2);
 
         // 生成适配器的Item和动态数组对应的元素
@@ -207,20 +207,20 @@ public class Activity_YuKong extends Activity implements OnClickListener
 
                 if (position == 0)
                 {
-                    url=appUrl+"/MxgApp/webSafety/goAddjdgl/"+m_loginname;
+                    url=appUrl+"/MxgApp/webSafety/goaqpxlist/"+m_loginname;
                     Intent intent = new Intent();
                     intent.setClass(Activity_YuKong.this, WebViewCanteen.class);
                     intent.putExtra("webUrl",url);
-                    intent.putExtra("titleName","人员统计");
+                    intent.putExtra("titleName","培训教育");
                     startActivity(intent);
                 }
                 else if( position==1 )
                 {
-                    url=appUrl+"/MxgApp/webSafety/goAddjdgl/"+m_loginname;
+                    url=appUrl+"/MxgApp/webSafety/xcjdlist/"+m_loginname+"/1";
                     Intent intent = new Intent();
                     intent.setClass(Activity_YuKong.this, WebViewCanteen.class);
                     intent.putExtra("webUrl",url);
-                    intent.putExtra("titleName","工资信息");
+                    intent.putExtra("titleName","现场交底");
                     startActivity(intent);
                 }
             }

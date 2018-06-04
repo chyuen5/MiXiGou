@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
+    android:background="@mipmap/login_01"
     android:fitsSystemWindows="true"
     tools:openDrawer="start"
     android:orientation="vertical">
@@ -33,8 +33,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_marginTop="50dp"
-        android:background="#FFFFFF">
+        android:layout_marginTop="50dp">
 
         <RelativeLayout
             android:layout_width="300dp"
@@ -47,6 +46,7 @@
                 android:id="@+id/iv_image"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+               android:visibility="gone"
                 android:src="@mipmap/login_icon08" />
         </RelativeLayout>   
         
@@ -62,7 +62,8 @@
                 android:layout_height="20dp"
         		android:layout_centerHorizontal="true"
                 android:textColor="#636363"
-                android:textSize="13sp" 
+                android:textSize="13sp"
+            android:visibility="gone"
                 android:text="版本：2.0"/>
         </RelativeLayout>
         
@@ -159,6 +160,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
+        android:visibility="gone"
         android:background="#FFFFFF"
         android:padding="30dp">
 

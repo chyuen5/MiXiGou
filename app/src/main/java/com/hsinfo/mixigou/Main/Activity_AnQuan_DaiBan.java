@@ -42,7 +42,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-public class Activity_JinDu extends Activity implements OnClickListener
+public class Activity_AnQuan_DaiBan extends Activity implements OnClickListener
 {
     private SharedPreferences sp;
 
@@ -94,6 +94,7 @@ public class Activity_JinDu extends Activity implements OnClickListener
         m_duban = sp.getString("USERDATA.DUBAN.NUM", "0");
         m_daiban = sp.getString("USERDATA.DAIBAN.NUM", "0");
 
+        m_loginname = "admin";
         m_rolecode = Integer.parseInt(strrolecode);
 
         iv_add = (ImageView) findViewById(R.id.iv_add);
@@ -111,7 +112,7 @@ public class Activity_JinDu extends Activity implements OnClickListener
             @Override
             public void onClick(View view)
             {
-                final AlertDialog.Builder normalDialog = new AlertDialog.Builder(Activity_JinDu.this);
+                final AlertDialog.Builder normalDialog = new AlertDialog.Builder(Activity_AnQuan_DaiBan.this);
                 normalDialog.setTitle("注销");
                 normalDialog.setMessage("确定要注销吗？");
                 normalDialog.setPositiveButton("确定",
@@ -121,7 +122,7 @@ public class Activity_JinDu extends Activity implements OnClickListener
                             {
                                 // 注销
                                 Intent intent = new Intent();
-                                intent.setClass( Activity_JinDu.this, ActivityLogin.class);
+                                intent.setClass( Activity_AnQuan_DaiBan.this, ActivityLogin.class);
                                 startActivity(intent);
 
                                 finish();
@@ -159,7 +160,7 @@ public class Activity_JinDu extends Activity implements OnClickListener
         });
 
         TextView tv_title = (TextView) this.findViewById(R.id.tv_title2);
-        tv_title.setText("进度管理");
+        tv_title.setText("安全管理待办");
 
         // 后退
         ImageView iv_back = (ImageView) this.findViewById(R.id.iv_back);
@@ -175,21 +176,27 @@ public class Activity_JinDu extends Activity implements OnClickListener
         initList_100();
     }
 
+    //领导
     public ListView initList_100()
     {
         FinishPeddingItem listItem1 = new FinishPeddingItem();
-        listItem1.setIv_icon1(R.mipmap.home_jindu01);
-        listItem1.setTv_title("进度反馈");
+        listItem1.setIv_icon1(R.mipmap.home_anquan11);
+        listItem1.setTv_title("危险源管理待办");
         //listItem1.setTv_date(m_duban);
         listItems.add(listItem1);
 
         FinishPeddingItem listItem2 = new FinishPeddingItem();
-        listItem2.setIv_icon1(R.mipmap.home_jindu02);
-        listItem2.setTv_title("进度模拟");
+        listItem2.setIv_icon1(R.mipmap.home_anquan12);
+        listItem2.setTv_title("巡检管理待办");
         listItems.add(listItem2);
 
+        FinishPeddingItem listItem3 = new FinishPeddingItem();
+        listItem3.setIv_icon1(R.mipmap.home_anquan13);
+        listItem3.setTv_title("亮点管理待办");
+        listItems.add(listItem3);
+
         // 生成适配器的Item和动态数组对应的元素
-        listItemAdapter = new AdaperItem3( Activity_JinDu.this, listItems );
+        listItemAdapter = new AdaperItem3( Activity_AnQuan_DaiBan.this, listItems );
         listItemAdapter.setListView(listview);
         // 添加并且显示
         listview.setAdapter(listItemAdapter);
@@ -205,20 +212,29 @@ public class Activity_JinDu extends Activity implements OnClickListener
 
                 if (position == 0)
                 {
-                    url=appUrl+"/MxgApp/webSafety/goAddjdgl/"+m_loginname;
+                    url=appUrl+"/MxgApp/webSafety/waitweixianyuan/"+m_loginname+"/1";
                     Intent intent = new Intent();
-                    intent.setClass(Activity_JinDu.this, WebViewCanteen.class);
+                    intent.setClass(Activity_AnQuan_DaiBan.this, WebViewCanteen.class);
                     intent.putExtra("webUrl",url);
-                    intent.putExtra("titleName","进度反馈");
+                    intent.putExtra("titleName","危险源管理待办");
                     startActivity(intent);
                 }
                 else if( position==1 )
                 {
-                    url=appUrl+"/MxgApp/webSafety/goAddjdgl/"+m_loginname;
+                    url=appUrl+"/MxgApp/webSafety/waitDealQuality/"+m_loginname+"/1";
                     Intent intent = new Intent();
-                    intent.setClass(Activity_JinDu.this, WebViewCanteen.class);
+                    intent.setClass(Activity_AnQuan_DaiBan.this, WebViewCanteen.class);
                     intent.putExtra("webUrl",url);
-                    intent.putExtra("titleName","进度模拟");
+                    intent.putExtra("titleName","巡检管理待办");
+                    startActivity(intent);
+                }
+                else if( position==2 )
+                {
+                    url=appUrl+"/MxgApp/webSafety/waitliangdian/"+m_loginname+"/1";
+                    Intent intent = new Intent();
+                    intent.setClass(Activity_AnQuan_DaiBan.this, WebViewCanteen.class);
+                    intent.putExtra("webUrl",url);
+                    intent.putExtra("titleName","亮点管理待办");
                     startActivity(intent);
                 }
             }
@@ -489,7 +505,7 @@ public class Activity_JinDu extends Activity implements OnClickListener
 
             String surl=appUrl+"/LHKAppServer/goPassword/"+m_loginname;
             Intent intent = new Intent();
-            intent.setClass(Activity_JinDu.this, WebViewCanteen.class);
+            intent.setClass(Activity_AnQuan_DaiBan.this, WebViewCanteen.class);
             intent.putExtra("webUrl",surl);
             intent.putExtra("titleName","修改密码");
             startActivity(intent);
@@ -506,7 +522,7 @@ public class Activity_JinDu extends Activity implements OnClickListener
         else if (view == itemSettings)
         {
 
-            final AlertDialog.Builder normalDialog = new AlertDialog.Builder(Activity_JinDu.this);
+            final AlertDialog.Builder normalDialog = new AlertDialog.Builder(Activity_AnQuan_DaiBan.this);
             normalDialog.setTitle("注销");
             normalDialog.setMessage("确定要注销吗？");
             normalDialog.setPositiveButton("确定",
@@ -516,7 +532,7 @@ public class Activity_JinDu extends Activity implements OnClickListener
                         {
                             // 注销
                             Intent intent = new Intent();
-                            intent.setClass( Activity_JinDu.this, ActivityLogin.class);
+                            intent.setClass( Activity_AnQuan_DaiBan.this, ActivityLogin.class);
                             startActivity(intent);
 
                             finish();

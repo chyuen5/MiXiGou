@@ -77,15 +77,18 @@
 			android:visibility="gone"
 			android:background="@mipmap/shouye" />
 
-	   <ListView
-		   android:id="@+id/list_dangan"
-		   android:layout_width="fill_parent"
-		   android:layout_height="fill_parent"
-		   android:background="#FFFFFF"
-		   android:divider="#DADADA"
-		   android:dividerHeight="2px"
-		   android:scrollbars="none"
-		   android:scrollingCache="true" />
+	   <GridView
+		   android:id="@+id/main_grid3"
+		   android:layout_width="wrap_content"
+		   android:layout_height="wrap_content"
+		   android:gravity="center"
+		   android:verticalSpacing="0dp"
+		   android:horizontalSpacing="0dp"
+		   android:listSelector="@null"
+		   android:textSize="14dp"
+		   android:numColumns="3"
+		   android:stretchMode="columnWidth">
+	   </GridView>
 
    </LinearLayout>
 </android.support.design.widget.CoordinatorLayout>

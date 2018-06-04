@@ -94,7 +94,6 @@ public class Activity_RenYuan extends Activity implements OnClickListener
         m_duban = sp.getString("USERDATA.DUBAN.NUM", "0");
         m_daiban = sp.getString("USERDATA.DAIBAN.NUM", "0");
 
-        m_loginname = "admin";
         m_rolecode = Integer.parseInt(strrolecode);
 
         iv_add = (ImageView) findViewById(R.id.iv_add);
@@ -180,13 +179,13 @@ public class Activity_RenYuan extends Activity implements OnClickListener
     public ListView initList_100()
     {
         FinishPeddingItem listItem1 = new FinishPeddingItem();
-        listItem1.setIv_icon1(R.mipmap.home_jindu01);
+        listItem1.setIv_icon1(R.mipmap.home_renyuan01);
         listItem1.setTv_title("人员统计");
         //listItem1.setTv_date(m_duban);
         listItems.add(listItem1);
 
         FinishPeddingItem listItem2 = new FinishPeddingItem();
-        listItem2.setIv_icon1(R.mipmap.home_jindu02);
+        listItem2.setIv_icon1(R.mipmap.home_renyuan02);
         listItem2.setTv_title("工资信息");
         listItems.add(listItem2);
 
@@ -207,7 +206,7 @@ public class Activity_RenYuan extends Activity implements OnClickListener
 
                 if (position == 0)
                 {
-                    url=appUrl+"/MxgApp/webSafety/goAddjdgl/"+m_loginname;
+                    url=appUrl+"/MxgApp/rygl/statistics/0/2018-00-00";
                     Intent intent = new Intent();
                     intent.setClass(Activity_RenYuan.this, WebViewCanteen.class);
                     intent.putExtra("webUrl",url);
@@ -216,7 +215,7 @@ public class Activity_RenYuan extends Activity implements OnClickListener
                 }
                 else if( position==1 )
                 {
-                    url=appUrl+"/MxgApp/webSafety/goAddjdgl/"+m_loginname;
+                    url=appUrl+"/MxgApp/rygl/statistics/gz";
                     Intent intent = new Intent();
                     intent.setClass(Activity_RenYuan.this, WebViewCanteen.class);
                     intent.putExtra("webUrl",url);
