@@ -80,8 +80,8 @@ public class ActivityLogin extends AppCompatActivity
         m_departid = "";
 
         sp = getSharedPreferences("userdata", 0);
-        //m_urlhost = UrlUtil.HOST;
-        m_urlhost = "http://218.106.125.140:8099";
+        m_urlhost = UrlUtil.HOST;
+        //m_urlhost = "http://218.106.125.140:8099";
 
         edit_user = (EditText)findViewById(R.id.et_usertel);
         edit_password = (EditText) findViewById(R.id.et_password);
@@ -197,8 +197,8 @@ public class ActivityLogin extends AppCompatActivity
             mDialog.setCanceledOnTouchOutside(false);  // 设置在点击Dialog外是否取消Dialog进度条
             mDialog.show();
 
-            Thread Thread_DaiBan = new Thread(new ThreadDaiBan());
-            Thread_DaiBan.start();
+            //Thread Thread_DaiBan = new Thread(new ThreadDaiBan());
+            //Thread_DaiBan.start();
 
             //登录验证用户密码
             Thread loginThread = new Thread(new ThreadLogin());
@@ -334,7 +334,7 @@ public class ActivityLogin extends AppCompatActivity
             }
 
             //外网
-            url = m_urlhost+"/LHKAppServer/login/"+loginName+"/"+password;
+            url = m_urlhost+"/MxgApp/login/"+loginName+"/"+password;
 
             //内网
             //url = "http://10.6.189.67/XSAppServer/login/"+loginName+"/"+password;
@@ -379,7 +379,8 @@ public class ActivityLogin extends AppCompatActivity
                 realname = jsonObj.getString("realname");
 
                 //获取角色
-                roles = jsonObj.getString("roleCode");
+                //roles = jsonObj.getString("roleCode");
+                roles = "100";
 
                 userid = jsonObj.getString("id");
 

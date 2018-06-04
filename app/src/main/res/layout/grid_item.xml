@@ -21,4 +21,17 @@
         android:textColor="#717071"
         android:textSize="14sp" 
         android:text="新闻通知"/>
+
+    <TextView
+        android:id="@+id/unread_msg_number"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="1dp"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center"
+        android:text="7"
+        android:textColor="@android:color/red"
+        android:textSize="12sp" />
 </LinearLayout>
