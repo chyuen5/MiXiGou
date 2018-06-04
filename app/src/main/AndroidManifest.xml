@@ -66,12 +66,7 @@
             </intent-filter>
         </activity>
 
-        <activity
-            android:name=".Main.ActivityMain"
-            android:launchMode="singleTask"
-            android:windowSoftInputMode="adjustPan"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppThemeM.slide"/>
+
         <activity
             android:name=".Main.Activity_JinDu"
             android:launchMode="singleTask"
