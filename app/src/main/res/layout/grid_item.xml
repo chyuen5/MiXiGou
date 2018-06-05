@@ -31,7 +31,8 @@
         android:layout_marginTop="1dp"
         android:layout_gravity="center_horizontal"
         android:gravity="center"
+        android:visibility="gone"
         android:text="7"
-        android:textColor="@android:color/red"
+        android:textColor="#ED1C24"
         android:textSize="12sp" />
 </LinearLayout>
