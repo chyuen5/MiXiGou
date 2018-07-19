@@ -238,6 +238,7 @@ public class ActivityLogin extends AppCompatActivity
                     msg.what = 1013;
                     msg.obj = strbuf;
                     handler.sendMessage(msg);
+                    return;
                 }
 
                 length = resultStr.length();
@@ -248,6 +249,7 @@ public class ActivityLogin extends AppCompatActivity
                     msg.what = 1014;
                     msg.obj = strbuf;
                     handler.sendMessage(msg);
+                    return;
                 }
 
                 //获取名字汉字
@@ -278,7 +280,7 @@ public class ActivityLogin extends AppCompatActivity
 
                 //异常错误
                 msg = handler.obtainMessage();
-                msg.what = 6;
+                msg.what = 7;
                 handler.sendMessage(msg);
             }
         }
@@ -407,7 +409,7 @@ public class ActivityLogin extends AppCompatActivity
                 e.printStackTrace();
 
                 msg = handler.obtainMessage();
-                msg.what = 6;
+                msg.what = 8;
                 handler.sendMessage(msg);
             }
             catch (Exception e)
@@ -417,7 +419,7 @@ public class ActivityLogin extends AppCompatActivity
 
                 //异常错误
                 msg = handler.obtainMessage();
-                msg.what = 6;
+                msg.what = 9;
                 handler.sendMessage(msg);
             }
         }

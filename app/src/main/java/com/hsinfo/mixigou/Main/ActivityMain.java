@@ -79,7 +79,7 @@ public class ActivityMain extends Activity implements OnClickListener
 
     private GridView gridView;
 
-    private int m_rolecode;
+    private int m_rolecode = 0;
     private String url;
     private String m_loginname;
     private String m_diaplayname;
