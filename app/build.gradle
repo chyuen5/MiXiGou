@@ -4,11 +4,14 @@ android {
     compileSdkVersion 27
     defaultConfig {
         applicationId "com.hsinfo.mixigou"
-        minSdkVersion 15
+        minSdkVersion 16
         targetSdkVersion 27
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        sourceSets.main {
+            jniLibs.srcDirs = ['libs']
+        }
     }
     buildTypes {
         release {
@@ -17,6 +20,8 @@ android {
         }
     }
     buildToolsVersion '27.0.3'
+    productFlavors {
+    }
 }
 
 dependencies {
@@ -26,6 +31,8 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    //虹软人脸识别
+    implementation 'com.guo.android_extend:android-extend:1.0.5'
     //PushSDK必须依赖基础组件库，所以需要加入对应依赖
     implementation 'com.umeng.sdk:common:1.5.0'
     //PushSDK必须依赖utdid库，所以需要加入对应依赖
@@ -35,4 +42,5 @@ dependencies {
     //华为Push通道
     //implementation 'com.umeng.sdk:push-huawei:1.0.0'
     implementation files('libs/nineoldandroids-2.4.0.jar')
+    implementation files('libs/ageestimation.jar')
 }
